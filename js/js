@@ -1,0 +1,14 @@
+@media only screen and (max-width: 1170px) {
+
+    .footer .row > div {
+        width: 50px !important;
+        margin-bottom: 30px;
+    }
+
+    @media only screen and (max-width: 574px){
+
+        .footer .row > div {
+            width: 100% !important;
+    }
+
+}
