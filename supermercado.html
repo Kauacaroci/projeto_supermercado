@@ -10,30 +10,31 @@
 </head>
 
 <body>
-    <div class="container">
-        <h3>Cadastro de viagens</h3>
-        <form action="backend/_cadastrar_produtos.php" method="post">
-            <div>
-                <label for="produto">Produto</label>
-                <input type="text" name="produto" id="produto">
+    <div id="container">
+        <h3>Cadastro de produtos</h3>
+        <form class="form" action="backend/_cadastrar_produtos.php" method="post">
+            <div class="item">
+                <label class="centerlab" for="produto"></label>
+                <input  type="text" name="produto" id="produto" placeholder="Nome Do produto">
             </div>
-            <div>
-                <label for="valor">Valor</label>
-                <input type="number" name="valor" id="valor">
+            <div class="item">
+                <label class="centerlab" for="valor"></label>
+                <input type="text" name="valor" id="valor"  placeholder="Valor">
             </div>
-            <div>
-                <label for="categoria">Categoria</label>
-                <input type="text" name="categoria" id="categoria">
+            <div class="item">
+                <label class="centerlab" for="categoria"></label>
+                <input type="text" name="categoria" id="categoria"  placeholder="Categoria">
             </div>
-            <div>
-                <label for="fabricante">Fabricante</label>
-                <input type="text" name="fabricante" id="fabricante">
+            <div class="item">
+                <label class="centerlab" for="fabricante"></label>
+                <input type="text" name="fabricante" id="fabricante"  placeholder="Fabricante">
             </div>
-
-            <input type="submit" value="Cadastrar">
+            
         </form>
-        
-        <footer class="footer">
+        <div class="btn">
+            <input class="btn" type="submit" value="Cadastrar">
+            </div>
+      <!--  <footer class="footer">
             <div class="cont">
                 <div class="row">
                     <div>
@@ -65,6 +66,7 @@
             </div>
             
         </footer>
+        -->
     </div>
 
 </body>

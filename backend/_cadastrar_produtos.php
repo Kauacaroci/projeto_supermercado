@@ -32,6 +32,10 @@ try{
 
     echo "Cadastro realizado com sucesso!";
 
+    // fechar a conexao
+    
+    $con = null;
+
 }catch(PDOException $erro){
     echo $erro->getMessage();
 
