@@ -1,44 +1,84 @@
 <?php
-    include '../backend/conexao.php';
 
-    try{
+include '../backend/conexao.php';
 
-    }catch(PDOException $erro){
-        $sql = "SELECT * FROM tb_produtos WHERE id = $id";
+try {
+    $sql = "SELECT * FROM tb_produtos;";
 
-        $conexao = $con ->prepare($sql);
+    $comando = $con->prepare($sql);
 
-        $conexao ->execute();
-    }
+    $comando->execute();
+
+    $dados = $comando -> fetchAll(PDO::FETCH_ASSOC); 
+
+} catch (PDOException $erro) {
+    echo $erro->getMessage();
+}
+
+
 ?>
-
 
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciar produtos</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style-listar.css">
 </head>
+
 <body>
     <div id="container">
+        <h3>Listagem de produtos</h3>
+
         <div id="tabela">
-        <table>
-            <tr>
-                <th>Produto</th>
-                <th>Valor</th>
-                <th>Categoria</th>
-                <th>Fabricante</th>
-            </tr>
+            <table border="1">
 
-        </table>
+                <tr>
+                    <th>ID</th>
+                    <th>Produto</th>
+                    <th>Valor</th>
+                    <th>Tipo</th>
+                    <th>Marca</th>
+                    <th>Alterar</th>
+                    <th>Deletar</th>
+                </tr>
 
+                <?php
+                    foreach($dados as $p):
+                ?>
+                <tr>
+                    <td><?php echo $p['id'];?></td>
+                    <td><?php echo $p['produto'];?></td>
+                    <td><?php echo $p['valor'];?></td>
+                    <td><?php echo $p['tipo'];?></td>
+                    <td><?php echo $p['marca'];?></td>
+                    <td><a href="../admin/alterar.php?id=<?php echo $p['id'];?>">
+                            alterar
+                        </a></td>
+                    <td>
+                        <a href="../backend/deletar_produto.php?id=<?php echo $p['id'];?>">
+                            Deletar
+                        </a>
+                    </td>
+                </tr>
 
+                <?php
+                    endforeach;
+                ?>
 
+            </table>
         </div>
-    
+
+
+
     </div>
+
+
+
 </body>
+
 </html>

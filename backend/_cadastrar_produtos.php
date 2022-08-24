@@ -1,45 +1,61 @@
 <?php
 
-include '../backend/conexao.php';
+include ('../backend/conexao.php');
 
 
 try{
+
+
+$produto = $_POST['produto'];
+$valor = $_POST['valor'];
+$tipo = $_POST['tipo'];
+$marca = $_POST['marca'];
+
+$nome_original_imagem = $_FILES['imagem']['name'];
+
+$extensao = pathinfo($nome_original_imagem,PATHINFO_EXTENSION);
+
+    if($extensao != 'jpg' && $extensao != 'jpeg' && $extensao != 'png'){
+        echo 'Formato de Imagem inválido';
+        exit;
+    }
+
+    $hash = md5(uniqid($_FILES['imagem']['tmp_name'],true));
+
+    $nome_final_imagem = $hash.'.'.$extensao;
+
+    $pasta = '../img/upload/';
     
-    $produto= $_POST['produto'];
-    $valor = $_POST['valor'];
-    $categoria= $_POST['categoria'];
-    $fabricante= $_POST['fabricante'];
-    
-    $sql = "INSERT INTO
+    move_uploaded_file($_FILES['imagem']['tmp_name'],$pasta.$nome_final_imagem);
+
+$sql = "INSERT INTO
                 tb_produtos
-                (   
+                (
                     `produto`,
                     `valor`,
-                    `categoria`,
-                    `fabricante`
+                    `tipo`,
+                    `marca`,
+                    `imagem`
                 )VALUES
                 (
                     '$produto',
                     '$valor',
-                    '$categoria',
-                    '$fabricante'
+                    '$tipo',
+                    '$marca',
+                    '$nome_final_imagem'
                 )
         ";
-  
-    $comando = $con ->prepare($sql);
 
-    $comando->execute();
+        $comando = $con->prepare($sql);
 
-    echo "Cadastro realizado com sucesso!";
+        $comando -> execute();
 
-    // fechar a conexao
-    
-    $con = null;
+        header('location: ../admin/gerenciar-produtos.php');
 
-}catch(PDOException $erro){
-    echo $erro->getMessage();
+    }catch(PDOException $e){
+        echo $erro->getMessage();
+        die();
+    }
 
-}
 
-   
 ?>

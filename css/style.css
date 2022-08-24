@@ -1,170 +1,70 @@
 *{
- 
-    font-family: 'Courier New', Courier, monospace;
-    align-items: ce;
-    box-sizing: border-box;
-}
-/* /* footer inativo
-.footer{
-    padding: 30px 0 0;
-    background-color: rgb(30, 30, 30);
-    box-sizing: border-box;
-    width: 100%;
-    font-size: 1em;
-
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
 }
 
-.footer .cont{
-    max-width: 1170px;
-    margin: auto;
-}
-
-.footer .row{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    color: rgb(255, 255, 255, 1);
-}
-
-.footer .row > div{
-    width: 20%;
-    padding: 0 25px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    flex-grow: 1;
-}
-
-.footer .row p{
-    margin: 20px 0;
-    color: rgb(255, 255, 255, .8);
-    font-size: .9em;
-    line-height: 1.8em;
-}
-
-.footer .row h4{
-    background-color: gray;
-    color: blueviolet;
-    width: fit-content;
-    border-radius: 7px;
-    padding: 5px 10px;
-    font-weight: 600;
-}
-
-.footer .row ul,
-.footer .row li{
-    list-style-type: none;
-    padding-left: 0;
-    margin: 15px 0;
-    transition: .3s;
-    overflow: hidden;
-}
-
-.footer .row li{
-    transform: translateX(-15px);
-}
-
-.footer .row li::before{
-    content: '';
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0;
-    height: 0;
-    border-top: 5px solid transparent;
-    border-left: 8px solid rgb(118, 109, 244);
-    border-bottom: 5px solid transparent;
-}
-
-.footer .row li::hover{
-    transform: translateX();
-}
-
-.footer .row ul a {
-    text-decoration: none;
-    color: rgb(255, 255, 255, .8);
-    margin-left: 15px;
-}
-
-.footer .copyright{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 40px;
-    height: 80px;
-    background-color: rgb(10, 10, 10);
-    color: rgb(255, 255, 255, .7);
-    font-size: .8em;
-}
-
- */
+/* body{
+    background-image: url("../img/mercado.jpg");
+  background-color: #cccccc; 
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
 
 #container{
-    
+    background-color: azure;
     width: 60%;
-    display: grid;
-    grid-template-columns: repeat(1,1fr);
-    margin: 0 auto;
-    margin-top: 40px;
-    display: grid;
     height: 450px;
-    border: 2px solid black;
-    background-color:  rgb(223, 223, 223);
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-    align-items: center;
-    
-    
+    display: grid;
+    margin: 0 auto;
+    margin-top: 80px;
+    border: 1px solid black;
 }
 
-.form div{
-    
+#form-edit{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(2,1fr);
     gap: 50px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
-    
-   
+    margin-top: 50px;
 }
 
 h3{
     text-align: center;
-    
+    font-weight: bolder;
+    padding: 30px;
+    margin-bottom: -80px;
 }
 
-.btn{
-    text-align: center;
-    border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
-    
-}
-
-.item{
-
+#form-edit div{
     display: grid;
     grid-template-rows: 1fr;
-    justify-items: center;
-    
+    padding: 20px;
 }
 
-.grid-produtos{
-    width: 90%;
+#form-edit div input{
+    padding: 5px 20px;
+    border-radius: 10px;
+    border: 3px solid black;
+}
+
+label{
+    font-weight: bold;
+}
+
+.button{
+    margin: 0 auto;
+    padding: 10px;
+    color: cadetblue;
+    border: 2px solid black;
+    border-radius: 6px;
+    justify-items: left;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.botao{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 10px;
-    
-    
+    grid-template-columns: 1fr;
+    margin: 0 auto;
 }
-
-.figure-produtos{
-    
-}
-
-.img-produtos{
-   height: 80px;
-   margin-left: 10px;
-   box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
-
-}
-
-
-    

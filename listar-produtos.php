@@ -1,56 +1,68 @@
 <?php
+include 'backend/conexao.php';
 
-    include 'backend/conexao.php';
 
-    try{
+try {
+    $sql = "SELECT * FROM tb_produtos";
 
-        $sql = "SELECT * FROM tb_produtos";
+    $comando = $con->prepare($sql);
 
-        $comando = $con->prepare($sql);
+    $comando->execute();
 
-        $comando->execute();
+    $dados = $comando->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $erro) {
+    echo $erro->getMessage();
+}
 
-        $dados = $comando->fetchALL(PDO::FETCH_ASSOC);
 
-    }catch(PDOException $erro){
-        echo $erro->getMessage();
-    
-    }
-    
-    ?>
-    
+?>
+
+
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pr-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listar Produtos</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-listar.css">
 </head>
+
 <body>
+
     <div id="container">
+
         <h3>Listar Produtos</h3>
-        <?php
-          foreach($dados as $p):
-        ?>
-        <div class="grid-produtos">
-        <figure class="figure-produtos">
-            <img class="img-produtos" src="img/vmercado.jpg" alt="Imagem dos produtos">
-            <figcaption>
-                <h4><?php echo $p['produto'] ?></h4>
-                <h4>$<?php echo $p['valor']?></h4>
-                <h4><?php echo $p['categoria'] ?></h4>
-                <h4><?php echo $p['fabricante'] ?></h4>
-            </figcaption>
-        </figure>
-    <?php 
-    endforeach ;
-     ?>
+
+        
+            <div id="grid-produtos">
+
+            <?php
+            foreach ($dados as $p) :
+            ?>
+                <figure>
+
+                    <img class="img-fig" src="img/upload/<?php echo $p['imagem']?>" alt="">
+                    <figcaption>
+                        <h4><?php echo $p['produto']; ?></h4>
+                        <h5><?php echo $p['valor']; ?></h5>
+                        <h5><?php echo $p['tipo']; ?></h5>
+                        <h5><?php echo $p['marca']; ?> </h5>
+                    </figcaption>
+
+                </figure>
+
+
+            <?php
+        endforeach;
+            ?>
+
+            </div>
 
     </div>
-    </div>
-    
+
 </body>
+
 </html>
