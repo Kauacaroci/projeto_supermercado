@@ -59,6 +59,10 @@ try{
                 <input type="text" id="marca" name="marca" value="<?php echo $dados[0]['marca']?>">
             </div>
             <div>
+                <label for="imagem">imagem</label>
+                <input type="file" id="imagem" name="imagem" value="<?php echo $dados[0]['imagem']?>">
+            </div>
+            <div>
                 <input type="submit" value="SALVAR">
             </div>
         </form>
